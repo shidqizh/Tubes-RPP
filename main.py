@@ -33,7 +33,7 @@ def main():
                 
         elif choice == '2':
             breed_name = input("Enter breed name: ")
-            breed = kb.breeds.get(breed_name)
+            breed = next((value for key, value in kb.breeds.items() if key.lower() == breed_name), None)
             if breed:
                 print(f"\n{breed.name} Details:")
                 for field, value in asdict(breed).items():
